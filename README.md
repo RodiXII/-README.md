@@ -133,29 +133,3 @@ class KeyloggerSimulado:
         
         print("[+] Keylogger parado")
 
-# Demonstração controlada
-if __name__ == "__main__":
-    keylogger = KeyloggerSimulado(
-        intervalo_relatorio=30,  # Relatório a cada 30 segundos
-        # email="seu_email@gmail.com",  # Configure se quiser testar email
-        # senha="sua_senha"
-    )
-    
-    print("""
-    DEMONSTRAÇÃO DE KEYLOGGER - APENAS EDUCATIVO
-    --------------------------------------------
-    Este keylogger irá capturar suas teclas por 60 segundos
-    ou até você pressionar ESC.
-    
-    ATENÇÃO: Não use para monitorar outras pessoas sem consentimento!
-    """)
-    
-    # Timer para parar automaticamente após 60 segundos
-    threading.Timer(60, keylogger.parar).start()
-    
-    keylogger.iniciar()
-    
-    # Limpeza final
-    if os.path.exists(keylogger.arquivo_log):
-        os.remove(keylogger.arquivo_log)
-        print("[+] Arquivos de log removidos")
